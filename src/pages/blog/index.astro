@@ -1,0 +1,202 @@
+---
+import { getCollection } from 'astro:content';
+import BaseHead from '../../components/BaseHead.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead title="Articles — Witholi" description="All articles on female sexual health, hormones, fertility, chronic disease and preventive lifestyle." />
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+
+    <nav>
+      <div class="nav-logo"><a href="/">Witholi</a></div>
+      <ul class="nav-links">
+        <li><a href="/blog">Articles</a></li>
+        <li><a href="#">Topics</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Newsletter</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <div class="page-header">
+        <div class="hero-tag">All Articles</div>
+        <h1>Written with <em>care & clarity</em></h1>
+        <p>Evidence-informed writing on the topics that matter most to your health.</p>
+      </div>
+
+      <div class="posts-grid">
+        {posts.map((post) => (
+          <a href={`/blog/${post.id}/`} class="card">
+            <span class="card-tag">{post.data.category ?? 'Health'}</span>
+            <h2>{post.data.title}</h2>
+            <p>{post.data.description}</p>
+            <div class="card-meta">
+              <FormattedDate date={post.data.pubDate} />
+            </div>
+          </a>
+        ))}
+      </div>
+    </main>
+
+    <footer>
+      <p>© 2026 Witholi · Written with care</p>
+    </footer>
+
+  </body>
+</html>
+
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #FBF7F2;
+    color: #2C2018;
+    min-height: 100vh;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 3rem;
+    border-bottom: 1px solid #EDE5D8;
+  }
+
+  .nav-logo a {
+    font-family: 'Lora', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #7C4A2D;
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.9rem;
+    color: #6B5040;
+    text-decoration: none;
+  }
+
+  .nav-links a:hover { color: #7C4A2D; }
+
+  main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 4rem 3rem;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #A0673A;
+    background: #F5E6D3;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    margin-bottom: 1.25rem;
+  }
+
+  .page-header h1 {
+    font-family: 'Lora', serif;
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 1.25;
+    color: #2C2018;
+    margin-bottom: 1rem;
+  }
+
+  .page-header h1 em {
+    color: #A0673A;
+    font-style: italic;
+  }
+
+  .page-header p {
+    font-size: 1rem;
+    color: #6B5040;
+    font-weight: 300;
+  }
+
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .card {
+    background: #FFF9F4;
+    border: 1px solid #EDE5D8;
+    border-radius: 16px;
+    padding: 2rem;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .card:hover {
+    border-color: #C49070;
+    transform: translateY(-2px);
+  }
+
+  .card-tag {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #A0673A;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .card h2 {
+    font-family: 'Lora', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #2C2018;
+    margin-bottom: 0.75rem;
+  }
+
+  .card p {
+    font-size: 0.88rem;
+    line-height: 1.65;
+    color: #6B5040;
+    font-weight: 300;
+    margin-bottom: 1.25rem;
+  }
+
+  .card-meta {
+    font-size: 0.78rem;
+    color: #9E7A5E;
+  }
+
+  footer {
+    border-top: 1px solid #EDE5D8;
+    padding: 2rem 3rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #9E7A5E;
+  }
+</style>

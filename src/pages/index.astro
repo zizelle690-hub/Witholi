@@ -1,0 +1,225 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead title="Witholi" description="Evidence-informed writing on female sexual health, hormones, fertility, chronic disease, and preventive lifestyle." />
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+
+    <nav>
+      <div class="nav-logo">Witholi</div>
+      <ul class="nav-links">
+        <li><a href="#">Articles</a></li>
+        <li><a href="#">Topics</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Newsletter</a></li>
+      </ul>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-tag">Women's Health</div>
+      <h1>Your body deserves <em>honest answers</em></h1>
+      <p>Evidence-informed writing on female sexual health, hormones, fertility, chronic disease, and the lifestyle choices that actually protect your long-term wellbeing.</p>
+      <a href="/blog" class="hero-cta">Read the latest →</a>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="featured">
+      <p class="section-label">Browse by Topic</p>
+      <div class="topics-grid">
+        <div class="topic-pill">
+          <span class="topic-icon">🌸</span>
+          <p>Sexual & Reproductive Health</p>
+        </div>
+        <div class="topic-pill">
+          <span class="topic-icon">⚡</span>
+          <p>Hormones</p>
+        </div>
+        <div class="topic-pill">
+          <span class="topic-icon">🌱</span>
+          <p>Fertility</p>
+        </div>
+        <div class="topic-pill">
+          <span class="topic-icon">🫀</span>
+          <p>Chronic Disease</p>
+        </div>
+        <div class="topic-pill">
+          <span class="topic-icon">🛡️</span>
+          <p>Preventive Lifestyle</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2026 Witholi · Written with care</p>
+    </footer>
+
+  </body>
+</html>
+
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #FBF7F2;
+    color: #2C2018;
+    min-height: 100vh;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 3rem;
+    border-bottom: 1px solid #EDE5D8;
+  }
+
+  .nav-logo {
+    font-family: 'Lora', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #7C4A2D;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.9rem;
+    color: #6B5040;
+    text-decoration: none;
+  }
+
+  .nav-links a:hover { color: #7C4A2D; }
+
+  .hero {
+    padding: 5rem 3rem 4rem;
+    max-width: 780px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #A0673A;
+    background: #F5E6D3;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 {
+    font-family: 'Lora', serif;
+    font-size: 3rem;
+    font-weight: 600;
+    line-height: 1.25;
+    color: #2C2018;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero h1 em {
+    color: #A0673A;
+    font-style: italic;
+  }
+
+  .hero p {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: #6B5040;
+    max-width: 540px;
+    margin: 0 auto 2rem;
+    font-weight: 300;
+  }
+
+  .hero-cta {
+    display: inline-block;
+    background: #7C4A2D;
+    color: #FBF7F2;
+    padding: 0.85rem 2rem;
+    border-radius: 40px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .hero-cta:hover { background: #5E3520; }
+
+  .divider {
+    width: 60px;
+    height: 2px;
+    background: #D4A882;
+    margin: 3rem auto;
+    border-radius: 2px;
+  }
+
+  .section-label {
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #A0673A;
+    margin-bottom: 2.5rem;
+  }
+
+  .featured {
+    padding: 0 3rem 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .topics-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+  }
+
+  .topic-pill {
+    background: #FFF9F4;
+    border: 1px solid #EDE5D8;
+    border-radius: 12px;
+    padding: 1.25rem 0.75rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .topic-pill:hover {
+    background: #F5E6D3;
+    border-color: #C49070;
+  }
+
+  .topic-icon {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  .topic-pill p {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: #4A2E18;
+    line-height: 1.4;
+  }
+
+  footer {
+    border-top: 1px solid #EDE5D8;
+    padding: 2rem 3rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #9E7A5E;
+  }
+</style>
